@@ -2,6 +2,6 @@
 
 class_CryIf CryIf;
 
-void class_CryIf::InitFunction(void){
+FUNC(void, CRYIF_CODE) class_CryIf::InitFunction(void){
 }
 
