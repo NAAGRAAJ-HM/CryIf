@@ -8,6 +8,8 @@
 /*****************************************************/
 #include "CryIf.h"
 
+#include "CryIf_EcuM.h"
+
 /*****************************************************/
 /* #DEFINES                                          */
 /*****************************************************/
@@ -32,11 +34,13 @@
 /* OBJECTS                                           */
 /*****************************************************/
 class_CryIf CryIf;
+class_CryIf_EcuM CryIf_EcuM;
+class_EcuM_Client *EcuM_Client_ptr_CryIf = &CryIf_EcuM;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, CRYIF_CODE) class_CryIf::InitFunction(void){
+FUNC(void, CRYIF_CODE) class_CryIf_EcuM::InitFunction(void){
 }
 
 FUNC(void, CRYIF_CODE) class_CryIf::GetVersionInfo(void){

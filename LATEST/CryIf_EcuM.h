@@ -1,14 +1,15 @@
 #pragma once
 /*****************************************************/
-/* File   : CryIf.h                                  */
+/* File   : CryIf_EcuM.h                             */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Std_Types.h"
 #include "Compiler_Cfg_CryIf.h"
+
+#include "EcuM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,26 +22,12 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class class_CryIf{
+class class_CryIf_EcuM : public class_EcuM_Client{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, CRYIF_CODE) GetVersionInfo        (void);
-      FUNC(void, CRYIF_CODE) ProcessJob            (void);
-      FUNC(void, CRYIF_CODE) CancelJob             (void);
-      FUNC(void, CRYIF_CODE) KeyElementSet         (void);
-      FUNC(void, CRYIF_CODE) KeySetValid           (void);
-      FUNC(void, CRYIF_CODE) KeyElementGet         (void);
-      FUNC(void, CRYIF_CODE) KeyElementCopy        (void);
-      FUNC(void, CRYIF_CODE) KeyElementCopyPartial (void);
-      FUNC(void, CRYIF_CODE) KeyCopy               (void);
-      FUNC(void, CRYIF_CODE) RandomSeed            (void);
-      FUNC(void, CRYIF_CODE) KeyGenerate           (void);
-      FUNC(void, CRYIF_CODE) KeyDerive             (void);
-      FUNC(void, CRYIF_CODE) KeyExchangeCalcPubVal (void);
-      FUNC(void, CRYIF_CODE) KeyExchangeCalcSecret (void);
-      FUNC(void, CRYIF_CODE) CbNotification        (void);
+      FUNC(void, CRYIF_CODE) InitFunction(void);
 };
 
 /*****************************************************/
@@ -54,7 +41,7 @@ class class_CryIf{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern class_CryIf CryIf;
+extern class_EcuM_Client *EcuM_Client_ptr_CryIf;
 
 /*****************************************************/
 /* EOF                                               */
