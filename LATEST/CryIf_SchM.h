@@ -1,6 +1,6 @@
 #pragma once
 /*****************************************************/
-/* File   : CryIf_EcuM.h                             */
+/* File   : CryIf_SchM.h                             */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
@@ -9,7 +9,7 @@
 /*****************************************************/
 #include "Compiler_Cfg_CryIf.h"
 
-#include "EcuM_Client.h"
+#include "SchM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -22,13 +22,12 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class interface_CryIf_EcuM : public interface_EcuM_Client{
+class interface_CryIf_SchM : public interface_SchM_Client{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, CRYIF_CODE) InitFunction   (void);
-      FUNC(void, CRYIF_CODE) DeInitFunction (void);
+      FUNC(void, CRYIF_CODE) MainFunction(void);
 };
 
 /*****************************************************/
@@ -42,7 +41,7 @@ class interface_CryIf_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern interface_CryIf_EcuM *EcuM_Client_ptr_CryIf;
+extern interface_CryIf_SchM *SchM_Client_ptr_CryIf;
 
 /*****************************************************/
 /* EOF                                               */
