@@ -27,8 +27,8 @@ class interface_CryIf_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, CRYIF_CODE) InitFunction   (void);
-      FUNC(void, CRYIF_CODE) DeInitFunction (void);
+      virtual FUNC(void, CRYIF_CODE) InitFunction   (void) = 0;
+      virtual FUNC(void, CRYIF_CODE) DeInitFunction (void) = 0;
 };
 
 /*****************************************************/
