@@ -24,8 +24,6 @@
 /*****************************************************/
 class module_CryIf:
       public abstract_module
-   ,  public interface_CryIf_EcuM
-   ,  public interface_CryIf_SchM
 {
    public:
       FUNC(void, CRYIF_CODE) InitFunction   (void);
@@ -44,10 +42,9 @@ class module_CryIf:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_CryIf CryIf;
-
-interface_CryIf_EcuM *EcuM_Client_ptr_CryIf = &CryIf;
-interface_CryIf_SchM *SchM_Client_ptr_CryIf = &CryIf;
+module_CryIf   CryIf;
+infEcuMClient* gptrinfEcuMClient_CryIf = &CryIf;
+infSchMClient* gptrinfSchMClient_CryIf = &CryIf;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
