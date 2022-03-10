@@ -7,8 +7,8 @@
 /* #INCLUDES                                         */
 /*****************************************************/
 #include "module.h"
-#include "CryIf_EcuM.h"
-#include "CryIf_SchM.h"
+#include "infCryIf_EcuM.h"
+#include "infCryIf_SchM.h"
 #include "CryIf_Unused.h"
 
 /*****************************************************/
@@ -28,6 +28,7 @@ class module_CryIf:
    public:
       FUNC(void, CRYIF_CODE) InitFunction   (void);
       FUNC(void, CRYIF_CODE) DeInitFunction (void);
+      FUNC(void, CRYIF_CODE) GetVersionInfo (void);
       FUNC(void, CRYIF_CODE) MainFunction   (void);
 };
 
@@ -44,6 +45,7 @@ class module_CryIf:
 /*****************************************************/
 module_CryIf   CryIf;
 infEcuMClient* gptrinfEcuMClient_CryIf = &CryIf;
+infDcmClient*  gptrinfDcmClient_CryIf  = &CryIf;
 infSchMClient* gptrinfSchMClient_CryIf = &CryIf;
 
 /*****************************************************/
@@ -53,6 +55,9 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(void){
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
+}
+
+FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
