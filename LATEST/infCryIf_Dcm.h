@@ -1,6 +1,6 @@
 #pragma once
 /*****************************************************/
-/* File   : CryIf_EcuM.h                             */
+/* File   : infCryIf_Dcm.h                           */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
@@ -32,7 +32,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern infEcuMClient* gptrinfEcuMClient_CryIf;
+extern infDcmClient* gptrinfDcmClient_CryIf;
 
 /*****************************************************/
 /* FUNCTIONS                                         */

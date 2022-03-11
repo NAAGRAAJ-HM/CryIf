@@ -8,8 +8,8 @@
 /*****************************************************/
 #include "module.h"
 #include "infCryIf_EcuM.h"
+#include "infCryIf_Dcm.h"
 #include "infCryIf_SchM.h"
-#include "CryIf_Unused.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -63,8 +63,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::GetVersionInfo(void){
-}
+#include "CryIf_Unused.h"
 
 FUNC(void, CRYIF_CODE) class_CryIf_Unused::ProcessJob(void){
 }
