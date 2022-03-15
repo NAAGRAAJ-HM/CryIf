@@ -32,7 +32,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern infDcmClient* gptrinfDcmClient_CryIf;
+extern CONSTP2VAR(infDcmClient, CRYIF_VAR, CRYIF_CONST) gptrinfDcmClient_CryIf;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
