@@ -6,9 +6,8 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "infCryIf_Version.h"
-
 #include "module.h"
+#include "infCryIf_Version.h"
 #include "infCryIf_EcuM.h"
 #include "infCryIf_Dcm.h"
 #include "infCryIf_SchM.h"
@@ -45,31 +44,20 @@ class module_CryIf:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-
-/******************************************************************************/
-/* EOF                                                                        */
-/******************************************************************************/
-
-
-/*****************************************************/
-/* OBJECTS                                           */
-/*****************************************************/
 VAR(module_CryIf, CRYIF_VAR) CryIf;
 CONSTP2VAR(infEcuMClient, CRYIF_VAR, CRYIF_CONST) gptrinfEcuMClient_CryIf = &CryIf;
 CONSTP2VAR(infDcmClient,  CRYIF_VAR, CRYIF_CONST) gptrinfDcmClient_CryIf  = &CryIf;
 CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &CryIf;
 
-/*****************************************************/
-/* FUNCTIONS                                         */
-/*****************************************************/
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(void){
+   CryIf.IsInitDone = E_OK;
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
+   CryIf.IsInitDone = E_NOT_OK;
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
@@ -122,7 +110,7 @@ FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyExchangeCalcSecret(void){
 FUNC(void, CRYIF_CODE) class_CryIf_Unused::CbNotification(void){
 }
 
-/*****************************************************/
-/* EOF                                               */
-/*****************************************************/
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
 
