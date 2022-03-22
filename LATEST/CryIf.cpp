@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "infCryIf_Version.h"
+#include "CryIf_Cfg.h"
 #include "infCryIf_EcuM.h"
 #include "infCryIf_Dcm.h"
 #include "infCryIf_SchM.h"
@@ -15,10 +15,19 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define CRYIF_AR_RELEASE_MAJOR_VERSION                                         4
+#define CRYIF_AR_RELEASE_MINOR_VERSION                                         3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if(CRYIF_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
+   #error "Incompatible CRYIF_AR_RELEASE_MAJOR_VERSION!"
+#endif
+
+#if(CRYIF_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
+   #error "Incompatible CRYIF_AR_RELEASE_MINOR_VERSION!"
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -61,6 +70,11 @@ FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
+#if(STD_ON == CryIf_DevErrorDetect)
+//TBD: API parameter check
+   Det_ReportError(
+   );
+#endif
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
