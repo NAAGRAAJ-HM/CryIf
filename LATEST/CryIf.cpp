@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "CryIf_Cfg.h"
+#include "CfgCryIf.h"
 #include "infCryIf_EcuM.h"
 #include "infCryIf_Dcm.h"
 #include "infCryIf_SchM.h"
