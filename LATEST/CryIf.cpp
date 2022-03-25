@@ -6,11 +6,11 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.h"
-#include "CfgCryIf.h"
-#include "infCryIf_EcuM.h"
-#include "infCryIf_Dcm.h"
-#include "infCryIf_SchM.h"
+#include "module.hpp"
+#include "CfgCryIf.hpp"
+#include "infCryIf_EcuM.hpp"
+#include "infCryIf_Dcm.hpp"
+#include "infCryIf_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -90,7 +90,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 }
 
-#include "CryIf_Unused.h"
+#include "CryIf_Unused.hpp"
 
 FUNC(void, CRYIF_CODE) class_CryIf_Unused::ProcessJob(void){
 }
