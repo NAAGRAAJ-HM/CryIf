@@ -7,7 +7,6 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.hpp"
-#include "CfgCryIf.hpp"
 #include "infCryIf_EcuM.hpp"
 #include "infCryIf_Dcm.hpp"
 #include "infCryIf_SchM.hpp"
@@ -36,37 +35,40 @@ class module_CryIf:
       public abstract_module
 {
    public:
+      module_CryIf(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
+      }
       FUNC(void, CRYIF_CODE) InitFunction   (void);
       FUNC(void, CRYIF_CODE) DeInitFunction (void);
-      FUNC(void, CRYIF_CODE) GetVersionInfo (void);
       FUNC(void, CRYIF_CODE) MainFunction   (void);
-
-   private:
-      CONST(Std_TypeVersionInfo, CRYIF_CONST) VersionInfo = {
-            0x0000
-         ,  0xFFFF
-         ,  0x01
-         ,  '0'
-         ,  '1'
-         ,  '0'
-      };
 };
+
+extern VAR(module_CryIf, CRYIF_VAR) CryIf;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
+CONSTP2VAR(infEcuMClient, CRYIF_VAR, CRYIF_CONST) gptrinfEcuMClient_CryIf = &CryIf;
+CONSTP2VAR(infDcmClient,  CRYIF_VAR, CRYIF_CONST) gptrinfDcmClient_CryIf  = &CryIf;
+CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &CryIf;
 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
+#include "CfgCryIf.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_CryIf, CRYIF_VAR) CryIf;
-CONSTP2VAR(infEcuMClient, CRYIF_VAR, CRYIF_CONST) gptrinfEcuMClient_CryIf = &CryIf;
-CONSTP2VAR(infDcmClient,  CRYIF_VAR, CRYIF_CONST) gptrinfDcmClient_CryIf  = &CryIf;
-CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &CryIf;
+VAR(module_CryIf, CRYIF_VAR) CryIf(
+   {
+         0x0000
+      ,  0xFFFF
+      ,  0x01
+      ,  '0'
+      ,  '1'
+      ,  '0'
+   }
+);
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -77,14 +79,6 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(void){
 
 FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
    CryIf.IsInitDone = E_NOT_OK;
-}
-
-FUNC(void, CRYIF_CODE) module_CryIf::GetVersionInfo(void){
-#if(STD_ON == CryIf_DevErrorDetect)
-//TBD: API parameter check
-   Det_ReportError(
-   );
-#endif
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
