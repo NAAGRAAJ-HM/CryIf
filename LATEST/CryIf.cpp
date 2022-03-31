@@ -37,10 +37,9 @@ class module_CryIf:
    public:
       module_CryIf(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
-      FUNC(void, _CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      FUNC(void, CRYIF_CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, CRYIF_CODE) InitFunction   (void);
       FUNC(void, CRYIF_CODE) DeInitFunction (void);
       FUNC(void, CRYIF_CODE) MainFunction   (void);
 };
@@ -77,23 +76,39 @@ VAR(module_CryIf, CRYIF_VAR) CryIf(
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
-   CONSTP2CONST(CfgCryIf_Type, CFGCRYIF_CONFIG_DATApe, CFGCRYIF_APPL_CONST) lptrCfgCryIf
+   CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
 ){
-   if(NULL_PTR == lptrCfgCryIf){
+   if(E_OK == IsInitDone){
 #if(STD_ON == CryIf_DevErrorDetect)
       Det_ReportError(
       );
 #endif
    }
    else{
-// check lptrCfgCryIf for memory faults
+      if(NULL_PTR == lptrCfgModule){
+#if(STD_ON == CryIf_DevErrorDetect)
+         Det_ReportError(
+         );
+#endif
+      }
+      else{
+// check lptrCfgModule for memory faults
 // use PBcfg_CryIf as back-up configuration
+      }
+      IsInitDone = E_OK;
    }
-   CryIf.IsInitDone = E_OK;
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
-   CryIf.IsInitDone = E_NOT_OK;
+   if(E_OK != IsInitDone){
+#if(STD_ON == CryIf_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+      IsInitDone = E_NOT_OK;
+   }
 }
 
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
