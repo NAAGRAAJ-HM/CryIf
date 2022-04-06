@@ -14,18 +14,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CRYIF_AR_RELEASE_MAJOR_VERSION                                         4
-#define CRYIF_AR_RELEASE_MINOR_VERSION                                         3
+#define CRYIF_AR_RELEASE_VERSION_MAJOR                                         4
+#define CRYIF_AR_RELEASE_VERSION_MINOR                                         3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(CRYIF_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
-   #error "Incompatible CRYIF_AR_RELEASE_MAJOR_VERSION!"
+#if(CRYIF_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible CRYIF_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(CRYIF_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
-   #error "Incompatible CRYIF_AR_RELEASE_MINOR_VERSION!"
+#if(CRYIF_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible CRYIF_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -63,8 +63,10 @@ CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &Cry
 /******************************************************************************/
 VAR(module_CryIf, CRYIF_VAR) CryIf(
    {
-         0x0000
-      ,  0xFFFF
+         CRYIF_AR_RELEASE_VERSION_MAJOR
+      ,  CRYIF_AR_RELEASE_VERSION_MINOR
+      ,  0x00
+      ,  0xFF
       ,  0x01
       ,  '0'
       ,  '1'
