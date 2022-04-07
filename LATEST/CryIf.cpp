@@ -101,8 +101,8 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
             lptrCfg = lptrCfgModule;
          }
          else{
-// use PBcfg_CanIf as back-up configuration
-            lptrCfg = PBcfg_CanIf;
+// use PBcfgCanIf as back-up configuration
+            lptrCfg = &PBcfgCryIf;
          }
       }
       IsInitDone = E_OK;
