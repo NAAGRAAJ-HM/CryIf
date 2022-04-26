@@ -31,8 +31,27 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+class class_CryIf_Functionality{
+   public:
+      FUNC(void, CRYIF_CODE) ProcessJob            (void);
+      FUNC(void, CRYIF_CODE) CancelJob             (void);
+      FUNC(void, CRYIF_CODE) KeyElementSet         (void);
+      FUNC(void, CRYIF_CODE) KeySetValid           (void);
+      FUNC(void, CRYIF_CODE) KeyElementGet         (void);
+      FUNC(void, CRYIF_CODE) KeyElementCopy        (void);
+      FUNC(void, CRYIF_CODE) KeyElementCopyPartial (void);
+      FUNC(void, CRYIF_CODE) KeyCopy               (void);
+      FUNC(void, CRYIF_CODE) RandomSeed            (void);
+      FUNC(void, CRYIF_CODE) KeyGenerate           (void);
+      FUNC(void, CRYIF_CODE) KeyDerive             (void);
+      FUNC(void, CRYIF_CODE) KeyExchangeCalcPubVal (void);
+      FUNC(void, CRYIF_CODE) KeyExchangeCalcSecret (void);
+      FUNC(void, CRYIF_CODE) CbNotification        (void);
+};
+
 class module_CryIf:
       public abstract_module
+   ,  public class_CryIf_Functionality
 {
    public:
       module_CryIf(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
@@ -84,6 +103,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
    if(E_OK == IsInitDone){
 #if(STD_ON == CryIf_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -92,6 +115,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == CryIf_DevErrorDetect)
          Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
          );
 #endif
       }
@@ -116,6 +143,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == CryIf_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -132,6 +163,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == CryIf_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -142,64 +177,46 @@ FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 #endif
 }
 
-class class_CryIf_Unused{
-   public:
-      FUNC(void, CRYIF_CODE) ProcessJob            (void);
-      FUNC(void, CRYIF_CODE) CancelJob             (void);
-      FUNC(void, CRYIF_CODE) KeyElementSet         (void);
-      FUNC(void, CRYIF_CODE) KeySetValid           (void);
-      FUNC(void, CRYIF_CODE) KeyElementGet         (void);
-      FUNC(void, CRYIF_CODE) KeyElementCopy        (void);
-      FUNC(void, CRYIF_CODE) KeyElementCopyPartial (void);
-      FUNC(void, CRYIF_CODE) KeyCopy               (void);
-      FUNC(void, CRYIF_CODE) RandomSeed            (void);
-      FUNC(void, CRYIF_CODE) KeyGenerate           (void);
-      FUNC(void, CRYIF_CODE) KeyDerive             (void);
-      FUNC(void, CRYIF_CODE) KeyExchangeCalcPubVal (void);
-      FUNC(void, CRYIF_CODE) KeyExchangeCalcSecret (void);
-      FUNC(void, CRYIF_CODE) CbNotification        (void);
-};
-
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::ProcessJob(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::ProcessJob(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::CancelJob(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::CancelJob(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyElementSet(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementSet(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeySetValid(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeySetValid(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyElementGet(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementGet(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyElementCopy(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementCopy(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyElementCopyPartial(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementCopyPartial(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyCopy(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyCopy(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::RandomSeed(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::RandomSeed(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyGenerate(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyGenerate(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyDerive(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyDerive(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyExchangeCalcPubVal(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyExchangeCalcPubVal(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::KeyExchangeCalcSecret(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyExchangeCalcSecret(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Unused::CbNotification(void){
+FUNC(void, CRYIF_CODE) class_CryIf_Functionality::CbNotification(void){
 }
 
 /******************************************************************************/
