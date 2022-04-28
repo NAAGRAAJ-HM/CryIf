@@ -7,6 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "CryIf_core.hpp"
 #include "infCryIf_EcuM.hpp"
 #include "infCryIf_Dcm.hpp"
 #include "infCryIf_SchM.hpp"
