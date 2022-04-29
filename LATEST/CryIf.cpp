@@ -7,10 +7,9 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "CfgCryIf.hpp"
 #include "CryIf_core.hpp"
-#include "infCryIf_EcuM.hpp"
-#include "infCryIf_Dcm.hpp"
-#include "infCryIf_SchM.hpp"
+#include "infCryIf.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -44,6 +43,7 @@ class module_CryIf:
       );
       FUNC(void, CRYIF_CODE) DeInitFunction (void);
       FUNC(void, CRYIF_CODE) MainFunction   (void);
+      CRYIF_CORE_FUNCTIONALITIES
 };
 
 extern VAR(module_CryIf, CRYIF_VAR) CryIf;
@@ -58,7 +58,6 @@ CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &Cry
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-#include "CfgCryIf.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
