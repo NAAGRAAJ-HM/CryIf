@@ -159,46 +159,46 @@ FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 #endif
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::ProcessJob(void){
+FUNC(void, CRYIF_CODE) module_CryIf::ProcessJob(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::CancelJob(void){
+FUNC(void, CRYIF_CODE) module_CryIf::CancelJob(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementSet(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementSet(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeySetValid(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeySetValid(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementGet(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementGet(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementCopy(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopy(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyElementCopyPartial(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopyPartial(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyCopy(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyCopy(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::RandomSeed(void){
+FUNC(void, CRYIF_CODE) module_CryIf::RandomSeed(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyGenerate(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyGenerate(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyDerive(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyDerive(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyExchangeCalcPubVal(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcPubVal(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::KeyExchangeCalcSecret(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcSecret(void){
 }
 
-FUNC(void, CRYIF_CODE) class_CryIf_Functionality::CbNotification(void){
+FUNC(void, CRYIF_CODE) module_CryIf::CbNotification(void){
 }
 
 /******************************************************************************/
