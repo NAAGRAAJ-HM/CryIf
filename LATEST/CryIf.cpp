@@ -113,7 +113,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
@@ -133,7 +133,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
@@ -152,7 +152,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
