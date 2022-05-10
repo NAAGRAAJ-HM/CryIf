@@ -89,7 +89,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == CryIf_InitCheck)
-   if(E_OK != IsInitDone){
+   if(
+         E_OK
+      != IsInitDone
+   ){
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
@@ -127,7 +130,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
 
 FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
 #if(STD_ON == CryIf_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == CryIf_InitCheck)
       IsInitDone = E_NOT_OK;
@@ -147,7 +153,10 @@ FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
 
 FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 #if(STD_ON == CryIf_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == CryIf_InitCheck)
    }
