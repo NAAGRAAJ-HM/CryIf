@@ -9,7 +9,7 @@
 #include "Module.hpp"
 #include "CfgCryIf.hpp"
 #include "CryIf_core.hpp"
-#include "infCryIf.hpp"
+#include "infCryIf_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -32,6 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_CryIf:
+   INTERFACES_EXPORTED_CRYIF
       public abstract_module
    ,  public class_CryIf_Functionality
 {
