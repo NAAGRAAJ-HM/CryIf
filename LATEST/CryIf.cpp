@@ -32,7 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_CryIf:
-   INTERFACES_EXPORTED_CRYIF
+      INTERFACES_EXPORTED_CRYIF
       public abstract_module
    ,  public class_CryIf_Functionality
 {
