@@ -10,6 +10,7 @@
 #include "CfgCryIf.hpp"
 #include "CryIf_core.hpp"
 #include "infCryIf_Exp.hpp"
+#include "infCryIf_Imp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
