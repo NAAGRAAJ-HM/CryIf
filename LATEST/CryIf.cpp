@@ -74,10 +74,10 @@ CONSTP2VAR(infSchMClient, CRYIF_VAR, CRYIF_CONST) gptrinfSchMClient_CryIf = &Cry
 VAR(module_CryIf, CRYIF_VAR) CryIf(
    {
 #if(STD_ON == _ReSIM)
-         "CryIf"
+         "CryIf",
 #else
 #endif
-      ,  CRYIF_AR_RELEASE_VERSION_MAJOR
+         CRYIF_AR_RELEASE_VERSION_MAJOR
       ,  CRYIF_AR_RELEASE_VERSION_MINOR
       ,  0x00
       ,  0xFF
