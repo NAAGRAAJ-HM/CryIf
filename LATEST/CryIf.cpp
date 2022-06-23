@@ -130,7 +130,9 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
 #endif
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
+FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(
+   void
+){
 #if(STD_ON == CryIf_InitCheck)
    if(
          E_OK
@@ -153,7 +155,9 @@ FUNC(void, CRYIF_CODE) module_CryIf::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
+FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(
+   void
+){
 #if(STD_ON == CryIf_InitCheck)
    if(
          E_OK
@@ -175,46 +179,74 @@ FUNC(void, CRYIF_CODE) module_CryIf::MainFunction(void){
 #endif
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::ProcessJob(void){
+FUNC(void, CRYIF_CODE) module_CryIf::ProcessJob(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::CancelJob(void){
+FUNC(void, CRYIF_CODE) module_CryIf::CancelJob(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyElementSet(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementSet(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeySetValid(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeySetValid(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyElementGet(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementGet(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopy(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopy(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopyPartial(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyElementCopyPartial(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyCopy(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyCopy(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::RandomSeed(void){
+FUNC(void, CRYIF_CODE) module_CryIf::RandomSeed(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyGenerate(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyGenerate(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyDerive(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyDerive(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcPubVal(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcPubVal(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcSecret(void){
+FUNC(void, CRYIF_CODE) module_CryIf::KeyExchangeCalcSecret(
+   void
+){
 }
 
-FUNC(void, CRYIF_CODE) module_CryIf::CbNotification(void){
+FUNC(void, CRYIF_CODE) module_CryIf::CbNotification(
+   void
+){
 }
 
 /******************************************************************************/
