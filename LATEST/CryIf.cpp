@@ -82,12 +82,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
    ){
 #endif
       if(NULL_PTR != lptrCfgModule){
-         if(STD_HIGH){
-            lptrCfg = lptrCfgModule;
-         }
-         else{
-            lptrCfg = &PBcfgCryIf;
-         }
+         lptrCfg = lptrCfgModule;
       }
       else{
 #if(STD_ON == CryIf_DevErrorDetect)
