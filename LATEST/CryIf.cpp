@@ -7,9 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-#include "CfgCryIf.hpp"
-#include "CryIf_core.hpp"
-#include "infCryIf_Exp.hpp"
+#include "CryIf.hpp"
 #include "infCryIf_Imp.hpp"
 
 /******************************************************************************/
@@ -32,26 +30,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_CryIf:
-      INTERFACES_EXPORTED_CRYIF
-      public abstract_module
-   ,  public class_CryIf_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-
-   public:
-      FUNC(void, CRYIF_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, CRYIF_CODE) DeInitFunction (void);
-      FUNC(void, CRYIF_CODE) MainFunction   (void);
-      CRYIF_CORE_FUNCTIONALITIES
-};
-
-extern VAR(module_CryIf, CRYIF_VAR) CryIf;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
