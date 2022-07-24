@@ -7,6 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "ConstCryIf.hpp"
 #include "CfgCryIf.hpp"
 #include "CryIf_core.hpp"
 #include "infCryIf_Exp.hpp"
@@ -31,13 +32,15 @@ class module_CryIf:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+      const ConstCryIf_Type* lptrConst = (ConstCryIf_Type*)NULL_PTR;
 
    public:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, CRYIF_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
+            CONSTP2CONST(ConstModule_TypeAbstract, CRYIF_CONST,       CRYIF_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
       );
       FUNC(void, CRYIF_CODE) DeInitFunction (void);
       FUNC(void, CRYIF_CODE) MainFunction   (void);

@@ -48,7 +48,8 @@ VAR(module_CryIf, CRYIF_VAR) CryIf;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
-   CONSTP2CONST(CfgModule_TypeAbstract, CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
+      CONSTP2CONST(ConstModule_TypeAbstract, CRYIF_CONST,       CRYIF_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == CryIf_InitCheck)
    if(
@@ -56,8 +57,12 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
       != IsInitDone
    ){
 #endif
-      if(NULL_PTR != lptrCfgModule){
-         lptrCfg = lptrCfgModule;
+      if(
+            (NULL_PTR != lptrConstModule)
+         && (NULL_PTR != lptrCfgModule)
+      ){
+         lptrConst = lptrConstModule;
+         lptrCfg   = lptrCfgModule;
       }
       else{
 #if(STD_ON == CryIf_DevErrorDetect)
