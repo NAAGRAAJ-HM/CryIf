@@ -61,7 +61,7 @@ FUNC(void, CRYIF_CODE) module_CryIf::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = lptrConstModule;
+         lptrConst = (const ConstCryIf_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
