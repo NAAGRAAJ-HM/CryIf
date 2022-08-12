@@ -24,7 +24,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_EcuabCryIf:
-      INTERFACES_EXMCALPORTED_ECUABCRYIF
+      INTERFACES_EXPORTED_CRYIF
       public abstract_module
    ,  public class_EcuabCryIf_Functionality
 {
@@ -38,13 +38,13 @@ class module_EcuabCryIf:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-      FUNC(void, ECUABCRYIF_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, ECUABCRYIF_CONST,       ECUABCRYIF_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   ECUABCRYIF_CONFIG_DATA, ECUABCRYIF_APPL_CONST) lptrCfgModule
+      FUNC(void, CRYIF_CODE) InitFunction(
+            CONSTP2CONST(ConstModule_TypeAbstract, CRYIF_CONST,       CRYIF_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, ECUABCRYIF_CODE) DeInitFunction (void);
-      FUNC(void, ECUABCRYIF_CODE) MainFunction   (void);
-      ECUABCRYIF_CORE_FUNCTIONALITIES
+      FUNC(void, CRYIF_CODE) DeInitFunction (void);
+      FUNC(void, CRYIF_CODE) MainFunction   (void);
+      CRYIF_CORE_FUNCTIONALITIES
 };
 
 /******************************************************************************/
@@ -58,7 +58,7 @@ class module_EcuabCryIf:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_EcuabCryIf, ECUABCRYIF_VAR) EcuabCryIf;
+extern VAR(module_EcuabCryIf, CRYIF_VAR) EcuabCryIf;
 
 /******************************************************************************/
 /* EOF                                                                        */

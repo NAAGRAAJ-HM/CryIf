@@ -12,37 +12,37 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CRYIF_CORE_FUNCTIONALITIES                                             \
-              FUNC(void, CRYIF_CODE) ProcessJob            (void);             \
-              FUNC(void, CRYIF_CODE) McalCancelJob             (void);             \
-              FUNC(void, CRYIF_CODE) KeyElementSet         (void);             \
-              FUNC(void, CRYIF_CODE) KeySetValid           (void);             \
-              FUNC(void, CRYIF_CODE) KeyElementGet         (void);             \
-              FUNC(void, CRYIF_CODE) KeyElementCopy        (void);             \
-              FUNC(void, CRYIF_CODE) KeyElementCopyPartial (void);             \
-              FUNC(void, CRYIF_CODE) KeyCopy               (void);             \
-              FUNC(void, CRYIF_CODE) RandomSeed            (void);             \
-              FUNC(void, CRYIF_CODE) KeyGenerate           (void);             \
-              FUNC(void, CRYIF_CODE) KeyDerive             (void);             \
-              FUNC(void, CRYIF_CODE) KeyExchangeCalcPubVal (void);             \
-              FUNC(void, CRYIF_CODE) KeyExchangeCalcSecret (void);             \
-              FUNC(void, CRYIF_CODE) CbNotification        (void);             \
+#define ECUABCRYIF_CORE_FUNCTIONALITIES                                             \
+              FUNC(void, ECUABCRYIF_CODE) ProcessJob            (void);             \
+              FUNC(void, ECUABCRYIF_CODE) McalCancelJob             (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyElementSet         (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeySetValid           (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyElementGet         (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyElementCopy        (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyElementCopyPartial (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyCopy               (void);             \
+              FUNC(void, ECUABCRYIF_CODE) RandomSeed            (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyGenerate           (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyDerive             (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyExchangeCalcPubVal (void);             \
+              FUNC(void, ECUABCRYIF_CODE) KeyExchangeCalcSecret (void);             \
+              FUNC(void, ECUABCRYIF_CODE) CbNotification        (void);             \
 
-#define CRYIF_CORE_FUNCTIONALITIES_VIRTUAL                                     \
-      virtual FUNC(void, CRYIF_CODE) ProcessJob            (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) McalCancelJob             (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyElementSet         (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeySetValid           (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyElementGet         (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyElementCopy        (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyElementCopyPartial (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyCopy               (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) RandomSeed            (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyGenerate           (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyDerive             (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyExchangeCalcPubVal (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) KeyExchangeCalcSecret (void) = 0;         \
-      virtual FUNC(void, CRYIF_CODE) CbNotification        (void) = 0;         \
+#define ECUABCRYIF_CORE_FUNCTIONALITIES_VIRTUAL                                     \
+      virtual FUNC(void, ECUABCRYIF_CODE) ProcessJob            (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) McalCancelJob             (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyElementSet         (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeySetValid           (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyElementGet         (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyElementCopy        (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyElementCopyPartial (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyCopy               (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) RandomSeed            (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyGenerate           (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyDerive             (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyExchangeCalcPubVal (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) KeyExchangeCalcSecret (void) = 0;         \
+      virtual FUNC(void, ECUABCRYIF_CODE) CbNotification        (void) = 0;         \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -53,7 +53,7 @@
 /******************************************************************************/
 class class_EcuabCryIf_Functionality{
    public:
-      CRYIF_CORE_FUNCTIONALITIES_VIRTUAL
+      ECUABCRYIF_CORE_FUNCTIONALITIES_VIRTUAL
 };
 
 /******************************************************************************/

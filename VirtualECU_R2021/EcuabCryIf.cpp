@@ -13,18 +13,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define ECUABCRYIF_AR_RELEASE_VERSION_MAJOR                                         4
-#define ECUABCRYIF_AR_RELEASE_VERSION_MINOR                                         3
+#define CRYIF_AR_RELEASE_VERSION_MAJOR                                         4
+#define CRYIF_AR_RELEASE_VERSION_MINOR                                         3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(ECUABCRYIF_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible ECUABCRYIF_AR_RELEASE_VERSION_MAJOR!"
+#if(CRYIF_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible CRYIF_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(ECUABCRYIF_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible ECUABCRYIF_AR_RELEASE_VERSION_MINOR!"
+#if(CRYIF_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible CRYIF_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -42,14 +42,14 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_EcuabCryIf, ECUABCRYIF_VAR) EcuabCryIf;
+VAR(module_EcuabCryIf, CRYIF_VAR) EcuabCryIf;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, ECUABCRYIF_CONST,       ECUABCRYIF_APPL_CONST) lptrConstModule
-   ,  CONSTP2CONST(CfgModule_TypeAbstract,   ECUABCRYIF_CONFIG_DATA, ECUABCRYIF_APPL_CONST) lptrCfgModule
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::InitFunction(
+      CONSTP2CONST(ConstModule_TypeAbstract, CRYIF_CONST,       CRYIF_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   CRYIF_CONFIG_DATA, CRYIF_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == EcuabCryIf_InitCheck)
    if(
@@ -83,14 +83,14 @@ FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  ECUABCRYIF_E_UNINIT
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::DeInitFunction(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::DeInitFunction(
    void
 ){
 #if(STD_ON == EcuabCryIf_InitCheck)
@@ -108,14 +108,14 @@ FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::DeInitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  ECUABCRYIF_E_UNINIT
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::MainFunction(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::MainFunction(
    void
 ){
 #if(STD_ON == EcuabCryIf_InitCheck)
@@ -132,79 +132,79 @@ FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::MainFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  ECUABCRYIF_E_UNINIT
+         ,  CRYIF_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::ProcessJob(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::ProcessJob(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::McalCancelJob(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::McalCancelJob(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyElementSet(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyElementSet(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeySetValid(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeySetValid(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyElementGet(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyElementGet(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyElementCopy(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyElementCopy(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyElementCopyPartial(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyElementCopyPartial(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyCopy(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyCopy(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::RandomSeed(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::RandomSeed(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyGenerate(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyGenerate(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyDerive(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyDerive(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyExchangeCalcPubVal(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyExchangeCalcPubVal(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::KeyExchangeCalcSecret(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::KeyExchangeCalcSecret(
    void
 ){
 }
 
-FUNC(void, ECUABCRYIF_CODE) module_EcuabCryIf::CbNotification(
+FUNC(void, CRYIF_CODE) module_EcuabCryIf::CbNotification(
    void
 ){
 }
