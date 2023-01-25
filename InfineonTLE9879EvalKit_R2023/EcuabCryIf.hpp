@@ -1,13 +1,13 @@
 #pragma once
 /******************************************************************************/
-/* File   : EcuabCryIf.hpp                                                         */
+/* File   : EcuabCryIf.hpp                                                    */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstEcuabCryIf.hpp"
+#include "infEcuabCryIf_ServiceNvM_Types.hpp"
 #include "CfgEcuabCryIf.hpp"
 #include "EcuabCryIf_core.hpp"
 #include "infEcuabCryIf_Exp.hpp"
