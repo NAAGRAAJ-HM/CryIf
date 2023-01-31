@@ -32,14 +32,14 @@ class module_EcuabCryIf:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-      const ConstEcuabCryIf_Type* lptrConst = (ConstEcuabCryIf_Type*)NULL_PTR;
+      const ConstModule_TypeAbstract* lptrNvMBlocksRom = (ConstModule_TypeAbstract*)NULL_PTR;
 
    public:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, ECUABCRYIF_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, ECUABCRYIF_CONST,       ECUABCRYIF_APPL_CONST) lptrConstModule
+            CONSTP2CONST(ConstModule_TypeAbstract, ECUABCRYIF_CONST,       ECUABCRYIF_APPL_CONST) lptrNvMBlocksRomModule
          ,  CONSTP2CONST(CfgModule_TypeAbstract,   ECUABCRYIF_CONFIG_DATA, ECUABCRYIF_APPL_CONST) lptrCfgModule
       );
       FUNC(void, ECUABCRYIF_CODE) DeInitFunction (void);
