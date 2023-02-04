@@ -10,9 +10,11 @@
 class NvM_BlocksRom_EcuabCryIf_Type:
       public ConstModule_TypeAbstract
 {
-/******************************************************************************/
-/* CONSTS                                                                     */
-/******************************************************************************/
+};
+
+class NvM_BlocksNv_EcuabCryIf_Type:
+      public CfgModule_TypeAbstract
+{
 };
 
 /******************************************************************************/
