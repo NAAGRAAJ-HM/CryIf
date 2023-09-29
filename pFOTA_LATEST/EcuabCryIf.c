@@ -8,7 +8,7 @@ extern "C"
 #include "Csm_Cbk.hpp"
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
-# include "SwcServiceDet.hpp"
+#include "SwcServiceDet.hpp"
 #endif
 
 #if((  CRYIF_SW_MAJOR_VERSION != (5u)) \
@@ -22,11 +22,11 @@ extern "C"
 #define CryIf_Util_MemClr(dst, count)                                 CryIf_Util_MemSet(dst, 0u, count)
 
 #if !defined (CRYIF_LOCAL)
-# define CRYIF_LOCAL                                                  static
+#define CRYIF_LOCAL                                                  static
 #endif
 
 #if !defined (CRYIF_LOCAL_INLINE)
-# define CRYIF_LOCAL_INLINE                                           LOCAL_INLINE
+#define CRYIF_LOCAL_INLINE                                           LOCAL_INLINE
 #endif
 
 #define CRYIF_START_SEC_VAR_ZERO_INIT_8BIT
@@ -57,15 +57,15 @@ CRYIF_LOCAL_INLINE FUNC(void, CRYIF_CODE) CryIf_Util_MemSet(P2VAR(uint8, AUTOMAT
 
 CRYIF_LOCAL_INLINE FUNC(void, CRYIF_CODE) CryIf_Util_MemCpy(P2VAR(uint8, AUTOMATIC, AUTOMATIC) dst, P2CONST(uint8, AUTOMATIC, AUTOMATIC) src, uint32 count);
 
-CRYIF_LOCAL_INLINE FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Internal(CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxSrc,
-                                                                                         CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxDst,
-                                                                                         uint32 cryptoKeyId,
-                                                                                         uint32 keyElementId,
-                                                                                         uint32 keyElementSourceOffset,
-                                                                                         uint32 keyElementTargetOffset,
-                                                                                         uint32 keyElementCopyLength,
-                                                                                         uint32 targetCryptoKeyId,
-                                                                                         uint32 targetKeyElementId);
+CRYIF_LOCAL_INLINE FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Internal(CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxSrc
+   ,                                                                                        CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxDst
+   ,                                                                                        uint32 cryptoKeyId
+   ,                                                                                        uint32 keyElementId
+   ,                                                                                        uint32 keyElementSourceOffset
+   ,                                                                                        uint32 keyElementTargetOffset
+   ,                                                                                        uint32 keyElementCopyLength
+   ,                                                                                        uint32 targetCryptoKeyId
+   ,                                                                                        uint32 targetKeyElementId);
 
 CRYIF_LOCAL Std_ReturnType CryIf_KeyCopyForDifferentDrivers(uint32 cryIfKeyId, uint32 targetCryIfKeyId){
   uint8 i, j;
@@ -83,8 +83,8 @@ CRYIF_LOCAL Std_ReturnType CryIf_KeyCopyForDifferentDrivers(uint32 cryIfKeyId, u
   retValDst = CryIf_GetKeyElementIdsGetOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(targetCryIfKeyId))(CryIf_GetRefOfKey(targetCryIfKeyId), elementIdsDst, &elementIdsDstSize);
 
   if((retValSrc == E_OK) && (retValDst == E_OK)){
-    for (i = 0; i < elementIdsSrcSize; i++){
-      for (j = 0; j < elementIdsDstSize; j++)
+    for(i = 0; i < elementIdsSrcSize; i++){
+      for(j = 0; j < elementIdsDstSize; j++)
       {
         if(elementIdsSrc[i] == elementIdsDst[j])
         {
@@ -109,12 +109,12 @@ CRYIF_LOCAL Std_ReturnType CryIf_KeyCopyForDifferentDrivers(uint32 cryIfKeyId, u
 CRYIF_LOCAL FUNC(Std_ReturnType, CRYIF_CODE) CryIf_TranslateRedirectionKeys(P2VAR(uint32, AUTOMATIC, CRYIF_APPL_VAR) keyId){
   uint8 errorId = CRYIF_E_NO_ERROR;
 
-# if(CRYIF_DEV_ERROR_DETECT == STD_ON)
+#if(CRYIF_DEV_ERROR_DETECT == STD_ON)
   if(*keyId >= CryIf_GetSizeOfKey()){
     errorId = CRYIF_E_PARAM_HANDLE;
   }
   else
-# endif
+#endif
   {
     *keyId = CryIf_GetRefOfKey(*keyId);
   }
@@ -150,22 +150,22 @@ CRYIF_LOCAL FUNC(Std_ReturnType, CRYIF_CODE) CryIf_UpdateRedirectionInfo(P2CONST
     }
   }
 
-# if(CRYIF_DEV_ERROR_DETECT == STD_ON)
+#if(CRYIF_DEV_ERROR_DETECT == STD_ON)
   if(errorId != CRYIF_E_NO_ERROR){
     retVal = E_NOT_OK;
 
-#  if(CRYIF_DEV_ERROR_REPORT == STD_ON)
-    (void)Det_ReportError((uint16)CRYIF_MODULE_ID,
-      CRYIF_INSTANCE_ID_DET,
-      CRYIF_SID_PROCESS_JOB,
-      errorId);
-#  else
+#if(CRYIF_DEV_ERROR_REPORT == STD_ON)
+    (void)Det_ReportError((uint16)CRYIF_MODULE_ID
+   ,     CRYIF_INSTANCE_ID_DET
+   ,     CRYIF_SID_PROCESS_JOB
+   ,     errorId);
+#else
     CRYIF_DUMMY_STATEMENT(errorId);
-#  endif
+#endif
   }
-# else
+#else
   CRYIF_DUMMY_STATEMENT(errorId);
-# endif
+#endif
 
   return retVal;
 }
@@ -192,15 +192,15 @@ CRYIF_LOCAL_INLINE FUNC(void, CRYIF_CODE) CryIf_Util_MemCpy(P2VAR(uint8, AUTOMAT
 }
 
 CRYIF_LOCAL_INLINE FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Internal(
-      CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxSrc,
-      CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxDst,
-      uint32 cryptoKeyId,
-      uint32 keyElementId,
-      uint32 keyElementSourceOffset,
-      uint32 keyElementTargetOffset,
-      uint32 keyElementCopyLength,
-      uint32 targetCryptoKeyId,
-      uint32 targetKeyElementId){
+      CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxSrc
+   ,     CryIf_CryptoFunctionsIdxOfKeyType cryptoFctIdxDst
+   ,     uint32 cryptoKeyId
+   ,     uint32 keyElementId
+   ,     uint32 keyElementSourceOffset
+   ,     uint32 keyElementTargetOffset
+   ,     uint32 keyElementCopyLength
+   ,     uint32 targetCryptoKeyId
+   ,     uint32 targetKeyElementId){
   Std_ReturnType retVal;
 
   uint8 bufferSrc[CryIf_GetMaxSizeOfKeyElementOfGeneral()];
@@ -292,12 +292,12 @@ FUNC(void, CRYIF_CODE) CryIf_Init(void){
 FUNC(void, CRYIF_CODE) CryIf_GetVersionInfo(P2VAR(Std_VersionInfoType, AUTOMATIC, CRYIF_APPL_VAR) versioninfo){
   uint8 errorId = CRYIF_E_NO_ERROR;
 
-# if(CRYIF_DEV_ERROR_DETECT == STD_ON)
+#if(CRYIF_DEV_ERROR_DETECT == STD_ON)
   if(versioninfo == NULL_PTR){
     errorId = CRYIF_E_PARAM_POINTER;
   }
   else
-# endif
+#endif
   {
     versioninfo->vendorID = (CRYIF_VENDOR_ID);
     versioninfo->moduleID = (CRYIF_MODULE_ID);
@@ -306,23 +306,23 @@ FUNC(void, CRYIF_CODE) CryIf_GetVersionInfo(P2VAR(Std_VersionInfoType, AUTOMATIC
     versioninfo->sw_patch_version = (CRYIF_SW_PATCH_VERSION);
   }
 
-# if(CRYIF_DEV_ERROR_REPORT == STD_ON)
+#if(CRYIF_DEV_ERROR_REPORT == STD_ON)
   if(errorId != CRYIF_E_NO_ERROR){
     (void)Det_ReportError(CRYIF_MODULE_ID, CRYIF_INSTANCE_ID_DET, CRYIF_SID_GET_VERSION_INFO, errorId);
   }
-# else
+#else
   CRYIF_DUMMY_STATEMENT(errorId);
-# endif
+#endif
 }
 #endif
 
-FUNC(void, CRYIF_CODE) CryIf_CallbackNotification(P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job,
-                                                  Std_ReturnType result){
+FUNC(void, CRYIF_CODE) CryIf_CallbackNotification(P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job
+   ,                                                 Std_ReturnType result){
   Csm_CallbackNotification(job, result);
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_ProcessJob(uint32 channelId,
-                                                  P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job){
+FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_ProcessJob(uint32 channelId
+   ,                                                 P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -357,12 +357,12 @@ FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_ProcessJob(uint32 channelId,
         }
       }
 #if(CRYIF_REDIRECTION == STD_ON)
-# if(CRYIF_DEV_ERROR_DETECT)
+#if(CRYIF_DEV_ERROR_DETECT)
       retVal = CryIf_UpdateRedirectionInfo(job);
       if(retVal == E_OK)
-# else
+#else
       (void)CryIf_UpdateRedirectionInfo(job);
-# endif
+#endif
 #endif
       {
         retVal = CryIf_GetProcessJobOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfChannel(channelId))(CryIf_GetDriverObjectRefOfChannel(channelId), job);
@@ -384,8 +384,8 @@ FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_ProcessJob(uint32 channelId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_CancelJob(uint32 channelId,
-                                                 P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job){
+FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_CancelJob(uint32 channelId
+   ,                                                P2VAR(Crypto_JobType, AUTOMATIC, CRYIF_APPL_VAR) job){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -451,10 +451,10 @@ FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_CancelJob(uint32 channelId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementSet(uint32 cryIfKeyId,
-                                                     uint32 keyElementId,
-                                                     P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) keyPtr,
-                                                     uint32 keyLength){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementSet(uint32 cryIfKeyId
+   ,                                                    uint32 keyElementId
+   ,                                                    P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) keyPtr
+   ,                                                    uint32 keyLength){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -478,10 +478,10 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementSet(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetKeyElementSetOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                     keyElementId,
-                                                     keyPtr,
-                                                     keyLength);
+    retVal = CryIf_GetKeyElementSetOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                    keyElementId
+   ,                                                    keyPtr
+   ,                                                    keyLength);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
@@ -525,10 +525,10 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeySetValid(uint32 cryIfKeyId){
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementGet(uint32 cryIfKeyId,
-                                                     uint32 keyElementId,
-                                                     P2VAR(uint8, AUTOMATIC, CRYIF_APPL_VAR) resultPtr,
-                                                     P2VAR(uint32, AUTOMATIC, CRYIF_APPL_VAR) resultLengthPtr){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementGet(uint32 cryIfKeyId
+   ,                                                    uint32 keyElementId
+   ,                                                    P2VAR(uint8, AUTOMATIC, CRYIF_APPL_VAR) resultPtr
+   ,                                                    P2VAR(uint32, AUTOMATIC, CRYIF_APPL_VAR) resultLengthPtr){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -552,10 +552,10 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementGet(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetKeyElementGetOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                                                                   keyElementId,
-                                                                                                   resultPtr,
-                                                                                                   resultLengthPtr);
+    retVal = CryIf_GetKeyElementGetOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                                                                  keyElementId
+   ,                                                                                                  resultPtr
+   ,                                                                                                  resultLengthPtr);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
@@ -569,10 +569,10 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementGet(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopy(uint32 cryIfKeyId,
-                                                      uint32 keyElementId,
-                                                      uint32 targetCryIfKeyId,
-                                                      uint32 targetKeyElementId){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopy(uint32 cryIfKeyId
+   ,                                                     uint32 keyElementId
+   ,                                                     uint32 targetCryIfKeyId
+   ,                                                     uint32 targetKeyElementId){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -619,13 +619,13 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopy(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Stub(uint32 cryIfKeyId,
-                                                                  uint32 keyElementId,
-                                                                  uint32 keyElementSourceOffset,
-                                                                  uint32 keyElementTargetOffset,
-                                                                  uint32 keyElementCopyLength,
-                                                                  uint32 targetCryIfKeyId,
-                                                                  uint32 targetKeyElementId){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Stub(uint32 cryIfKeyId
+   ,                                                                 uint32 keyElementId
+   ,                                                                 uint32 keyElementSourceOffset
+   ,                                                                 uint32 keyElementTargetOffset
+   ,                                                                 uint32 keyElementCopyLength
+   ,                                                                 uint32 targetCryIfKeyId
+   ,                                                                 uint32 targetKeyElementId){
   CRYIF_DUMMY_STATEMENT(cryIfKeyId);
   CRYIF_DUMMY_STATEMENT(keyElementId);
   CRYIF_DUMMY_STATEMENT(keyElementSourceOffset);
@@ -637,13 +637,13 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial_Stub(uint32 cryIfKe
   return E_NOT_OK;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial(uint32 cryIfKeyId,
-                                                            uint32 keyElementId,
-                                                            uint32 keyElementSourceOffset,
-                                                            uint32 keyElementTargetOffset,
-                                                            uint32 keyElementCopyLength,
-                                                            uint32 targetCryIfKeyId,
-                                                            uint32 targetKeyElementId){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial(uint32 cryIfKeyId
+   ,                                                           uint32 keyElementId
+   ,                                                           uint32 keyElementSourceOffset
+   ,                                                           uint32 keyElementTargetOffset
+   ,                                                           uint32 keyElementCopyLength
+   ,                                                           uint32 targetCryIfKeyId
+   ,                                                           uint32 targetKeyElementId){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -684,8 +684,8 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyElementCopyPartial(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyCopy(uint32 cryIfKeyId,
-                                               uint32 targetCryIfKeyId){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyCopy(uint32 cryIfKeyId
+   ,                                              uint32 targetCryIfKeyId){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -721,9 +721,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyCopy(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_RandomSeed(uint32 cryIfKeyId,
-                                                  P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) seedPtr,
-                                                  uint32 seedLength){
+FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_RandomSeed(uint32 cryIfKeyId
+   ,                                                 P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) seedPtr
+   ,                                                 uint32 seedLength){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -747,9 +747,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_RandomSeed(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetRandomSeedOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                                                                seedPtr,
-                                                                                                seedLength);
+    retVal = CryIf_GetRandomSeedOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                                                               seedPtr
+   ,                                                                                               seedLength);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
@@ -793,8 +793,8 @@ FUNC(Std_ReturnType, CRYIF_CODE) EcuabCryIf_KeyGenerate(uint32 cryIfKeyId){
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyDerive(uint32 cryIfKeyId,
-                                                 uint32 targetCryIfKeyId){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyDerive(uint32 cryIfKeyId
+   ,                                                uint32 targetCryIfKeyId){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -825,9 +825,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyDerive(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcPubVal(uint32 cryIfKeyId,
-                                                             P2VAR(uint8, AUTOMATIC, CRYIF_APPL_VAR) publicValuePtr,
-                                                             P2VAR(uint32, AUTOMATIC, CRYIF_APPL_VAR) publicValueLengthPtr){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcPubVal(uint32 cryIfKeyId
+   ,                                                            P2VAR(uint8, AUTOMATIC, CRYIF_APPL_VAR) publicValuePtr
+   ,                                                            P2VAR(uint32, AUTOMATIC, CRYIF_APPL_VAR) publicValueLengthPtr){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -851,9 +851,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcPubVal(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetKeyExchangeCalcPubValOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                                                                           publicValuePtr,
-                                                                                                           publicValueLengthPtr);
+    retVal = CryIf_GetKeyExchangeCalcPubValOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                                                                          publicValuePtr
+   ,                                                                                                          publicValueLengthPtr);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
@@ -867,9 +867,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcPubVal(uint32 cryIfKeyId,
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcSecret(uint32 cryIfKeyId,
-                                                             P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) partnerPublicValuePtr,
-                                                             uint32 partnerPublicValueLength){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcSecret(uint32 cryIfKeyId
+   ,                                                            P2CONST(uint8, AUTOMATIC, CRYIF_APPL_DATA) partnerPublicValuePtr
+   ,                                                            uint32 partnerPublicValueLength){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -893,9 +893,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_KeyExchangeCalcSecret(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetKeyExchangeCalcSecretOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                                                                           partnerPublicValuePtr,
-                                                                                                           partnerPublicValueLength);
+    retVal = CryIf_GetKeyExchangeCalcSecretOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                                                                          partnerPublicValuePtr
+   ,                                                                                                          partnerPublicValueLength);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
@@ -939,9 +939,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_CertificateParse(uint32 cryIfKeyId){
   return retVal;
 }
 
-FUNC(Std_ReturnType, CRYIF_CODE) CryIf_CertificateVerify(uint32 cryIfKeyId,
-                                                         uint32 verifyCryIfKeyId,
-                                                         P2VAR(Crypto_VerifyResultType, AUTOMATIC, CRYIF_APPL_VAR) verifyPtr){
+FUNC(Std_ReturnType, CRYIF_CODE) CryIf_CertificateVerify(uint32 cryIfKeyId
+   ,                                                        uint32 verifyCryIfKeyId
+   ,                                                        P2VAR(Crypto_VerifyResultType, AUTOMATIC, CRYIF_APPL_VAR) verifyPtr){
   Std_ReturnType retVal = E_NOT_OK;
   uint8 errorId = CRYIF_E_NO_ERROR;
 
@@ -962,9 +962,9 @@ FUNC(Std_ReturnType, CRYIF_CODE) CryIf_CertificateVerify(uint32 cryIfKeyId,
   else
 #endif
   {
-    retVal = CryIf_GetCertificateVerifyOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId),
-                                                                                                       CryIf_GetRefOfKey(verifyCryIfKeyId),
-                                                                                                       verifyPtr);
+    retVal = CryIf_GetCertificateVerifyOfCryptoFunctions(CryIf_GetCryptoFunctionsIdxOfKey(cryIfKeyId))(CryIf_GetRefOfKey(cryIfKeyId)
+   ,                                                                                                      CryIf_GetRefOfKey(verifyCryIfKeyId)
+   ,                                                                                                      verifyPtr);
   }
 
 #if(CRYIF_DEV_ERROR_REPORT == STD_ON)
