@@ -6,7 +6,7 @@
 #include "Types_SwcServiceCsm.hpp"
 #include "CfgEcuabCryIf.hpp"
 
-#define CRYIF_VENDOR_ID                                              (30u)
+#define CRYIF_VENDOR_ID                                              (1u)
 #define CRYIF_MODULE_ID                                              (112u)
 
 #define CRYIF_AR_RELEASE_MAJOR_VERSION                               (4u)
